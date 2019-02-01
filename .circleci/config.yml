@@ -6,9 +6,11 @@ jobs:
         - image: circleci/node:8
           environment:
           - DISPLAY=:99
+        - image: redis
 
         steps:
         - checkout
+
         - run:
               command: |
                   sudo apt-get install -y python-setuptools python-dev build-essential xvfb
@@ -37,6 +39,7 @@ jobs:
         working_directory: ~/fxa
         docker:
             - image: circleci/node:8-stretch-browsers
+            - image: redis
         steps:
         - attach_workspace:
               at: ~/
@@ -67,6 +70,7 @@ jobs:
         working_directory: ~/fxa
         docker:
         - image: circleci/node:8-stretch-browsers
+        - image: redis
         steps:
         - attach_workspace:
               at: ~/
@@ -97,6 +101,7 @@ jobs:
         working_directory: ~/fxa
         docker:
         - image: circleci/node:8-stretch-browsers
+        - image: redis
         steps:
         - attach_workspace:
               at: ~/
@@ -127,6 +132,7 @@ jobs:
         working_directory: ~/fxa
         docker:
         - image: circleci/node:8-stretch-browsers
+        - image: redis
         steps:
         - attach_workspace:
               at: ~/
@@ -153,6 +159,7 @@ jobs:
         working_directory: ~/fxa
         docker:
             - image: circleci/node:8-stretch-browsers
+            - image: redis
         steps:
             - attach_workspace:
                   at: ~/
@@ -185,6 +192,7 @@ jobs:
     dockerpush:
         docker:
         - image: circleci/node:8-stretch-browsers
+        - image: redis
 
         steps:
         - checkout
